@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'feedback' => [
+        'to_address' => env('FEEDBACK_TO_EMAIL', 'hello@example.com'),
+    ],
+
 ];
