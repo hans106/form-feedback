@@ -1,7 +1,10 @@
 <?php
 
 use App\Mail\FeedbackReceived;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
+
+uses(RefreshDatabase::class);
 
 it('shows the feedback form', function () {
     $response = $this->get(route('feedback.create'));
@@ -27,6 +30,14 @@ it('emails valid feedback to the configured inbox', function () {
     $response->assertRedirect(route('feedback.create'))
         ->assertSessionHas('success', 'Terima kasih—masukanmu sudah terkirim.');
 
+    $this->assertDatabaseHas('feedback', [
+        'name' => 'Ayu Pratama',
+        'email' => 'ayu@example.com',
+        'category' => 'idea',
+        'sentiment' => 'great',
+        'message' => 'Saya suka alur yang sederhana ini.',
+    ]);
+
     Mail::assertSent(FeedbackReceived::class, function (FeedbackReceived $mail): bool {
         return $mail->hasTo('inbox@example.com')
             && $mail->feedback['name'] === 'Ayu Pratama';
@@ -47,6 +58,8 @@ it('does not send incomplete feedback', function () {
             'sentiment' => 'Pilih bagaimana pengalamanmu.',
             'message' => 'Ceritakan sedikit tentang masukanmu.',
         ]);
+
+    $this->assertDatabaseCount('feedback', 0);
 
     Mail::assertNothingSent();
 });
