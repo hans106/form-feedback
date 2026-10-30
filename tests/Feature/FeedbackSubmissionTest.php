@@ -15,6 +15,17 @@ it('shows the feedback form', function () {
         ->assertSee('name="message"', false);
 });
 
+it('shows a confirmation when feedback is sent successfully', function () {
+    $response = $this->withSession([
+        'success' => 'Terima kasih—masukanmu sudah terkirim.',
+    ])->get(route('feedback.create'));
+
+    $response->assertOk()
+        ->assertSee('BERHASIL DIKIRIM')
+        ->assertSee('Terima kasih—masukanmu sudah terkirim.')
+        ->assertSee('Terima kasih sudah meluangkan waktu untuk berbagi.');
+});
+
 it('emails valid feedback to the configured inbox', function () {
     Mail::fake();
     config(['services.feedback.to_address' => 'inbox@example.com']);
@@ -62,6 +73,26 @@ it('does not send incomplete feedback', function () {
     $this->assertDatabaseCount('feedback', 0);
 
     Mail::assertNothingSent();
+});
+
+it('renders a branded feedback email layout', function () {
+    $mail = new FeedbackReceived([
+        'name' => 'Ayu Pratama',
+        'email' => 'ayu@example.com',
+        'category' => 'idea',
+        'sentiment' => 'great',
+        'message' => 'Saya suka alur yang sederhana ini.',
+    ]);
+
+    $html = $mail->render();
+
+    expect($html)
+        ->toContain('FORM FEEDBACK')
+        ->toContain('Masukan baru masuk')
+        ->toContain('background-color:#193b34')
+        ->toContain('Email untuk dibalas')
+        ->toContain('Ide fitur')
+        ->toContain('Cerita');
 });
 
 it('escapes user supplied content in the feedback email', function () {

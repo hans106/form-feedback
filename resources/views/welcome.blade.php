@@ -54,7 +54,19 @@
 
             <section class="feedback-form-panel" aria-labelledby="form-title">
                 @if (session('success'))
-                    <p class="form-alert" role="status" aria-live="polite">{{ session('success') }}</p>
+                    <div class="submission-success" role="status" aria-live="polite">
+                        <span class="success-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="m6 12.5 4 4L18.5 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <div class="success-copy">
+                            <span class="success-label">BERHASIL DIKIRIM</span>
+                            <p>{{ session('success') }}</p>
+                            <span class="success-note">Terima kasih sudah meluangkan waktu untuk berbagi.</span>
+                        </div>
+                        <span class="success-decoration" aria-hidden="true">✳</span>
+                    </div>
                 @endif
 
                 @if ($errors->any())
