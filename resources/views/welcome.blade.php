@@ -8,6 +8,9 @@
 
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            {!! file_get_contents(resource_path('views/welcome.css')) !!}
+        </style>
     </head>
     <body>
         <main class="feedback-layout">

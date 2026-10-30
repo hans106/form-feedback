@@ -89,7 +89,8 @@ it('renders a branded feedback email layout', function () {
     expect($html)
         ->toContain('FORM FEEDBACK')
         ->toContain('Masukan baru masuk')
-        ->toContain('background-color:#193b34')
+        ->toContain('.email-hero')
+        ->toContain('background-color: #193b34')
         ->toContain('Email untuk dibalas')
         ->toContain('Ide fitur')
         ->toContain('Cerita');

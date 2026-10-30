@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+.email-body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f3ed;
+    color: #193b34;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.email-background {
+    border-collapse: collapse;
+    background-color: #f2f3ed;
+}
+
+.email-outer-cell {
+    padding: 36px 16px;
+}
+
+.email-container {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.email-brand-cell {
+    padding: 0 0 18px;
+}
+
+.email-brand-table,
+.email-details,
+.story-table {
+    border-collapse: collapse;
+}
+
+.email-brand {
+    color: #193b34;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.email-brand-mark {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    border-radius: 9px;
+    background-color: #c9f36a;
+    color: #193b34;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.email-brand-note {
+    color: #65756e;
+    font-size: 11px;
+}
+
+.email-hero {
+    overflow: hidden;
+    padding: 30px 34px 28px;
+    border-radius: 18px 18px 0 0;
+    background-color: #193b34;
+}
+
+.email-eyebrow {
+    margin: 0 0 12px;
+    color: #c9f36a;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.email-title {
+    margin: 0;
+    color: #f4f4eb;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.email-subtitle {
+    margin: 10px 0 0;
+    color: #ced9d0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.email-content {
+    padding: 28px 34px 32px;
+    border: 1px solid #e1e6dc;
+    border-top: 0;
+    border-radius: 0 0 18px 18px;
+    background-color: #fffefa;
+}
+
+.detail-cell {
+    padding: 15px 0 16px;
+    border-bottom: 1px solid #e8ece4;
+}
+
+.detail-cell-first {
+    padding-top: 0;
+}
+
+.detail-cell-last {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.detail-label {
+    margin: 0 0 7px;
+    color: #819087;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    margin: 0;
+    color: #263d33;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.detail-value-strong {
+    color: #193b34;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.email-link {
+    color: #426c4d;
+    text-decoration: underline;
+}
+
+.email-badge {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background-color: #eef5df;
+    color: #34573a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.email-badge-neutral {
+    background-color: #f4f3ec;
+    color: #46584d;
+}
+
+.story-table {
+    margin-top: 24px;
+}
+
+.story-cell {
+    padding: 18px 20px;
+    border-left: 3px solid #c9f36a;
+    border-radius: 0 10px 10px 0;
+    background-color: #f5f7f0;
+}
+
+.story-cell .detail-label {
+    margin-bottom: 9px;
+}
+
+.story-copy {
+    margin: 0;
+    color: #263d33;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.email-reply-note {
+    margin: 24px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid #e8ece4;
+    color: #819087;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.email-footer {
+    padding: 18px 12px 0;
+    color: #87958d;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+@media only screen and (max-width: 480px) {
+    .email-outer-cell {
+        padding: 20px 10px;
+    }
+
+    .email-hero {
+        padding: 24px 22px;
+    }
+
+    .email-content {
+        padding: 22px;
+    }
+
+    .email-title {
+        font-size: 26px;
+    }
+}
